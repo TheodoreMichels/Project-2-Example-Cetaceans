@@ -1,5 +1,15 @@
 $special-blue: rgba(30, 150, 220, 1.0);
 $accent-color: rgb(20, 200, 180);
+$accent-color-light: rgba(20, 200, 180, 0.2);
+@mixin frame-images {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: rotateZ(30deg) translateY(-50%);
+    transform-origin: 15% 15%;
+    height: 70%;
+}
+
 @mixin center-in-parent {
     position: absolute;
     top: 50%;
@@ -12,16 +22,25 @@ $accent-color: rgb(20, 200, 180);
     font-family: 'Satisfy';
     font-weight: 100;
     margin: 20px auto;
+    padding: 0 10px;
     text-align: center;
     font-size: 70px;
     color: $special-blue;
+    
     border-bottom: solid 1px $special-blue;
+}
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+    #site-title{
+        color: transparent;
+        background: linear-gradient($accent-color, $special-blue);
+        -webkit-background-clip: text;
+    }
 }
 
 #site-subtitle {
     text-align: center;
     text-transform: lowercase;
-    margin: 0 0 30px;
+    margin: 0;
     font-family: 'Neuton';
     font-weight: 100;
     font-size: 20px;
@@ -31,37 +50,83 @@ body {
     margin: 0;
     text-align: center;
     font-family: 'Neuton';
+    
+    overflow-x: hidden;
 }
-
-#taxa-box {
+.bg-fill{
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    background: linear-gradient(to bottom, $accent-color-light 0%, white 100%);
+}
+.content-section {
     display: flex;
-    flex-wrap: wrap;
 }
 
 .taxon-info {
+    z-index: 20;
+    position: relative;
     opacity: 0.0;
     border-top: dotted 1px $special-blue;
     border-bottom: dotted 1px $special-blue;
     padding: 10px;
-    margin: 10px 0;
+    margin: 10px auto;
+    max-width: 400px;
     text-align: left;
-    
+    transform: translateY(20px);
     transition: .3s all;
     p {
         margin: 0;
     }
 }
 
+.taxon-info:before {
+    content: "";
+    position: absolute;
+    left: calc(50% - 25px);
+    top: -65px;
+    width: 50px;
+    height: 20px;
+    box-sizing: border-box;
+    border-bottom: solid 20px $accent-color;
+    border-left: solid 25px transparent;
+    border-right: solid 25px transparent;
+}
+
 .taxon-container {
     flex: 1;
+    position: relative;
     text-align: center;
     margin: 40px;
     display: inline-block;
     cursor: pointer;
-    
     min-width: 250px;
+    .frame-box {
+        position: absolute;
+        
+        display: inline-block;
+        width: 200px;
+        height: 200px;
+        padding: 20px;
+        border: solid 4px transparent;
+        box-sizing: border-box;
+        
+        .double {
+            @include frame-images;
+            
+            
+            animation-timing-function: ease-in-out;
+            
+            opacity: 0.0;
+            transition: .5s all;
+        }
+    }
     .taxon-frame {
-        z-index: 50;
+        z-index: 10;
         display: inline-block;
         text-align: left;
         width: 200px;
@@ -72,13 +137,11 @@ body {
         padding: 20px;
         border: solid 4px $special-blue;
         border-radius: 50% 50%;
-        transition: .3s all;
+        transition: .2s all;
         img {
-            position: absolute;
-            top: 50%;
-            transform: rotateZ(30deg) translateY(-50%);
-            transform-origin: 15% 15%;
-            height: 50%;
+            @include frame-images;
+            opacity: 0.8;
+            transition: .3s all linear;
         }
         .extra-frame {
             pointer-events: none;
@@ -98,23 +161,60 @@ body {
         font-family: 'Comfortaa';
         text-transform: uppercase;
         letter-spacing: 8px;
+        margin: 15px;
         font-size: 13px;
         color: $special-blue;
     }
 }
 
-.taxon-container:hover {
+.bobbing{
+    animation: float 5s infinite ease-in-out;
+}
+
+.taxon-container.hover {
     .extra-frame {
         opacity: 1.0;
         transform: scale(0.9, 0.9);
         transition: .3s all;
     }
-    .taxon-info{
+    .taxon-frame {
+        //transform: scale(1.1, 1.1);
+        //overflow: visible;
+        img {
+            
+            opacity: 0.2;
+            transition: .8s all linear;
+        }
+    }
+    .frame-box{
+        img{
+
+            opacity: 0.8;
+            transition: .5s all linear;
+        }
+    }
+    .taxon-info {
         opacity: 1.0;
+        transform: translateY(0);
         transition: .3s all;
+    }
+    h1 {
+        color: $accent-color;
     }
 }
 
-footer{
+footer {
     padding: 40px;
+}
+
+@keyframes float {
+    0% {
+        transform: rotateZ(30deg) translateY(-50%);
+    }
+    50% {
+        transform: rotateZ(30deg) translateY(-60%);
+    }
+    100% {
+        transform: rotateZ(30deg) translateY(-50%);
+    }
 }
