@@ -1,0 +1,120 @@
+$special-blue: rgba(30, 150, 220, 1.0);
+$accent-color: rgb(20, 200, 180);
+@mixin center-in-parent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#site-title {
+    display: inline-block;
+    font-family: 'Satisfy';
+    font-weight: 100;
+    margin: 20px auto;
+    text-align: center;
+    font-size: 70px;
+    color: $special-blue;
+    border-bottom: solid 1px $special-blue;
+}
+
+#site-subtitle {
+    text-align: center;
+    text-transform: lowercase;
+    margin: 0 0 30px;
+    font-family: 'Neuton';
+    font-weight: 100;
+    font-size: 20px;
+}
+
+body {
+    margin: 0;
+    text-align: center;
+    font-family: 'Neuton';
+}
+
+#taxa-box {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.taxon-info {
+    opacity: 0.0;
+    border-top: dotted 1px $special-blue;
+    border-bottom: dotted 1px $special-blue;
+    padding: 10px;
+    margin: 10px 0;
+    text-align: left;
+    
+    transition: .3s all;
+    p {
+        margin: 0;
+    }
+}
+
+.taxon-container {
+    flex: 1;
+    text-align: center;
+    margin: 40px;
+    display: inline-block;
+    cursor: pointer;
+    
+    min-width: 250px;
+    .taxon-frame {
+        z-index: 50;
+        display: inline-block;
+        text-align: left;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        position: relative;
+        box-sizing: border-box;
+        padding: 20px;
+        border: solid 4px $special-blue;
+        border-radius: 50% 50%;
+        transition: .3s all;
+        img {
+            position: absolute;
+            top: 50%;
+            transform: rotateZ(30deg) translateY(-50%);
+            transform-origin: 15% 15%;
+            height: 50%;
+        }
+        .extra-frame {
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: solid 1px $accent-color;
+            border-radius: 50% 50%;
+            //background-color: $accent-color;
+            opacity: 0.0;
+            transition: .3s all;
+        }
+    }
+    h1 {
+        font-family: 'Comfortaa';
+        text-transform: uppercase;
+        letter-spacing: 8px;
+        font-size: 13px;
+        color: $special-blue;
+    }
+}
+
+.taxon-container:hover {
+    .extra-frame {
+        opacity: 1.0;
+        transform: scale(0.9, 0.9);
+        transition: .3s all;
+    }
+    .taxon-info{
+        opacity: 1.0;
+        transition: .3s all;
+    }
+}
+
+footer{
+    padding: 40px;
+}
