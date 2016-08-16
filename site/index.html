@@ -12,53 +12,94 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
+    <script src="https://use.fontawesome.com/47d86bc3a3.js"></script>
+
     <script src="scripts/scripts.js"></script>
+    <script src="scripts/links.js"></script>
+    <script src="scripts/bubbles.js"></script>
 </head>
 
 <body>
-<!--
-    <svg width="190" height="160" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10 10 C 20 20, 40 20, 50 10" stroke="black" fill="transparent"/>
-    </svg>
--->
-    
-    <div class="bg-fill"></div>
-    <h1 id="site-title">Cetaceans</h1>
-    <h2 id="site-subtitle">A simplified phylogeny of whales, dolphins, and porpoises</h2>
 
+    <div class="bg-fill"></div>
+
+    <div class="bubbles-container">
+    </div>
+
+    <!-- Bezier curves connecting different circles -->
+    <div class="bg-paths">
+        <svg id="links">
+            <defs>
+                <mask id="spots-mask">
+                    <!-- Show everything by default -->
+                    <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
+
+                    <!-- Individual masks for each taxon -->
+                    <!--
+                    <circle id="circ-mask-1" r="100" fill="black" />
+                    <circle id="circ-mask-2" r="100" fill="black" />
+                    <circle id="circ-mask-3" r="100" fill="black" />
+-->
+                </mask>
+            </defs>
+
+            <path class="link-path" id="path1" />
+            <path class="link-path" id="path2" />
+
+            <path class="link-path" id="path3" />
+            <path class="link-path" id="path4" />
+        </svg>
+
+    </div>
+
+    <header>
+        <h1 id="site-title">Cetaceans</h1>
+        <h2 id="site-subtitle">A simplified phylogeny of whales, dolphins, and porpoises</h2>
+    </header>
+
+    <div id="scale-button"><i class="fa fa-exchange" aria-hidden="true"></i></div>
+
+    <!-- Infraorder -->
     <div class="content-section" id="part1">
+        
+        <!-- Cetacea -->
         <div class="taxon-container">
+            <audio src="media/audio/Humpbackwhale2.ogg"></audio>
 
             <div class="frame-box">
                 <img class="double" src="media/Right_whale_size.svg">
             </div>
 
-            <div class="taxon-frame">
+            <div class="taxon-frame" id="cetacea">
                 <div class="extra-frame"></div>
                 <img src="media/Right_whale_size.svg">
-
             </div>
-
+            
+            <i class="fa fa-volume-up" aria-hidden="true"></i>
 
             <h1>Cetacea</h1>
             <div class="taxon-info">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. In consectetur, lectus nec volutpat dapibus, est tortor aliquam libero, ut sodales urna arcu imperdiet ipsum. Sed mollis nec nunc ut cursus. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer vel ex commodo, tempus libero quis, faucibus velit.</p>
             </div>
         </div>
+        
     </div>
 
+    <!-- Parvorders -->
     <div class="content-section" id="part2">
+        
+        <!-- Mysticeti -->
         <div class="taxon-container">
-
             <div class="frame-box">
                 <img class="double" src="media/Humpback_whale_size.svg">
             </div>
-            
-            <div class="taxon-frame">
+
+            <div class="taxon-frame" id="mysticeti">
                 <div class="extra-frame"></div>
                 <img src="media/Humpback_whale_size.svg">
-
             </div>
+
+            <i class="fa fa-volume-up" aria-hidden="true"></i>
 
             <h1>Mysticeti</h1>
             <div class="taxon-info">
@@ -66,30 +107,69 @@
             </div>
         </div>
 
+        <!-- Odontoceti -->
         <div class="taxon-container">
 
             <div class="frame-box">
-                <img class="double" src="media/Fin_whale_size.svg">
+                <img class="double" src="media/Cuvier's_beaked_whale_size.svg">
             </div>
-            
-            <div class="taxon-frame">
+
+            <div class="taxon-frame" id="odontoceti">
                 <div class="extra-frame"></div>
-                <img src="media/Fin_whale_size.svg">
+                <img src="media/Cuvier's_beaked_whale_size.svg">
 
             </div>
-            <h1>Balaenopteridae</h1>
+
+            <i class="fa fa-volume-up" aria-hidden="true"></i>
+            <h1>Odontoceti</h1>
             <div class="taxon-info">
                 <p>Nullam ut faucibus nisl. Praesent aliquet elementum ex eu fermentum. Donec quis ullamcorper nibh. Vivamus mattis sit amet sapien vel eleifend. Quisque ut porta arcu.</p>
             </div>
         </div>
     </div>
 
+    <!-- Families -->
     <div class="content-section" id="part3">
+        
+        <!-- Balaenopteridae -->
+        <div class="taxon-container">
+            <div class="frame-box">
+                <img class="double" src="media/Fin_whale_size.svg">
+            </div>
+
+            <div class="taxon-frame" id="balaenopteridae">
+                <div class="extra-frame"></div>
+                <img src="media/Fin_whale_size.svg">
+
+            </div>
+
+            <i class="fa fa-volume-up" aria-hidden="true"></i>
+            <h1>Balaenopteridae</h1>
+            <div class="taxon-info">
+                <p>Ut in nunc nisl. Etiam efficitur egestas nibh, et cursus lacus pellentesque a. Phasellus non scelerisque mauris. Ut sed arcu vehicula, egestas orci a, pretium lacus. Praesent consectetur, tortor vulputate blandit condimentum, massa diam cursus sem, id ornare lectus massa eget metus. Mauris ullamcorper suscipit mi, ac condimentum velit eleifend ac. Aliquam a bibendum metus.</p>
+            </div>
+        </div>
+
+        <!-- Balaenidae -->
+        <div class="taxon-container">
+            <div class="frame-box">
+                <img class="double" src="media/Right_whale_size.svg">
+            </div>
+
+            <div class="taxon-frame" id="balaenidae">
+                <div class="extra-frame"></div>
+                <img src="media/Right_whale_size.svg">
+
+            </div>
+
+            <i class="fa fa-volume-up" aria-hidden="true"></i>
+            <h1>Balaenidae</h1>
+            <div class="taxon-info">
+                <p>Historically, it is known as the right whale family, as it was thought to contain only species of right whales. Through most of the 20th Century, however, that became a much-debated (and unresolved) topic amongst the scientific community.</p>
+            </div>
+        </div>
+        
     </div>
-
-
-
-
 
     <footer>
         Theodore Michels 2016.
