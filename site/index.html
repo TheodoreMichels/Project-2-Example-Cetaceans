@@ -35,19 +35,24 @@
                     <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
 
                     <!-- Individual masks for each taxon -->
-                    <!--
+                    
                     <circle id="circ-mask-1" r="100" fill="black" />
                     <circle id="circ-mask-2" r="100" fill="black" />
                     <circle id="circ-mask-3" r="100" fill="black" />
--->
+
                 </mask>
             </defs>
 
-            <path class="link-path" id="path1" />
-            <path class="link-path" id="path2" />
-
-            <path class="link-path" id="path3" />
-            <path class="link-path" id="path4" />
+            <path class="link-path" id="path1" mask="url(#spots-mask)"/>
+            <path class="link-path" id="path2" mask="url(#spots-mask)"/>
+            <path class="link-path" id="path3" mask="url(#spots-mask)"/>
+            <path class="link-path" id="path4" mask="url(#spots-mask)"/>
+            <path class="link-path" id="path5" mask="url(#spots-mask)"/>
+            <path class="link-path" id="path6" mask="url(#spots-mask)"/>
+            <path class="link-path" id="path7" mask="url(#spots-mask)"/>
+            <path class="link-path" id="path8" mask="url(#spots-mask)"/>
+            <path class="link-path" id="path9" mask="url(#spots-mask)"/>
+            <path class="link-path" id="path10" mask="url(#spots-mask)"/>
         </svg>
 
     </div>
@@ -64,18 +69,18 @@
         
         <!-- Cetacea -->
         <div class="taxon-container">
-            <audio src="media/audio/Humpbackwhale2.ogg"></audio>
-
             <div class="frame-box">
-                <img class="double" src="media/Right_whale_size.svg">
+                <!-- src is set through JavaScript -->
+                <img class="double">
             </div>
 
             <div class="taxon-frame" id="cetacea">
                 <div class="extra-frame"></div>
-                <img src="media/Right_whale_size.svg">
+                <img src="media/Humpback_whale_size.svg">
             </div>
             
             <i class="fa fa-volume-up" aria-hidden="true"></i>
+            <audio src="media/audio/Humpbackwhale2.ogg"></audio>
 
             <h1>Cetacea</h1>
             <div class="taxon-info">
@@ -91,15 +96,16 @@
         <!-- Mysticeti -->
         <div class="taxon-container">
             <div class="frame-box">
-                <img class="double" src="media/Humpback_whale_size.svg">
+                <img class="double">
             </div>
 
             <div class="taxon-frame" id="mysticeti">
                 <div class="extra-frame"></div>
-                <img src="media/Humpback_whale_size.svg">
+                <img src="media/Blue_whale_size.svg">
             </div>
 
             <i class="fa fa-volume-up" aria-hidden="true"></i>
+            <audio src="media/audio/Blue_whale_atlantic3.ogg"></audio>
 
             <h1>Mysticeti</h1>
             <div class="taxon-info">
@@ -111,16 +117,18 @@
         <div class="taxon-container">
 
             <div class="frame-box">
-                <img class="double" src="media/Cuvier's_beaked_whale_size.svg">
+                <img class="double">
             </div>
 
             <div class="taxon-frame" id="odontoceti">
                 <div class="extra-frame"></div>
-                <img src="media/Cuvier's_beaked_whale_size.svg">
+                <img src="media/Orca_size-2.svg">
 
             </div>
 
             <i class="fa fa-volume-up" aria-hidden="true"></i>
+            <audio src="media/audio/Killer_whale.ogg"></audio>
+            
             <h1>Odontoceti</h1>
             <div class="taxon-info">
                 <p>Nullam ut faucibus nisl. Praesent aliquet elementum ex eu fermentum. Donec quis ullamcorper nibh. Vivamus mattis sit amet sapien vel eleifend. Quisque ut porta arcu.</p>
@@ -128,22 +136,23 @@
         </div>
     </div>
 
-    <!-- Families -->
-    <div class="content-section" id="part3">
+    <!-- Families TOP -->
+    <div class="content-section" id="part4">
         
         <!-- Balaenopteridae -->
         <div class="taxon-container">
             <div class="frame-box">
-                <img class="double" src="media/Fin_whale_size.svg">
+                <img class="double">
             </div>
 
             <div class="taxon-frame" id="balaenopteridae">
                 <div class="extra-frame"></div>
                 <img src="media/Fin_whale_size.svg">
-
             </div>
 
             <i class="fa fa-volume-up" aria-hidden="true"></i>
+            <audio src="media/audio/FinWhaleAtlantic-10x.ogg"></audio>
+            
             <h1>Balaenopteridae</h1>
             <div class="taxon-info">
                 <p>Ut in nunc nisl. Etiam efficitur egestas nibh, et cursus lacus pellentesque a. Phasellus non scelerisque mauris. Ut sed arcu vehicula, egestas orci a, pretium lacus. Praesent consectetur, tortor vulputate blandit condimentum, massa diam cursus sem, id ornare lectus massa eget metus. Mauris ullamcorper suscipit mi, ac condimentum velit eleifend ac. Aliquam a bibendum metus.</p>
@@ -153,26 +162,163 @@
         <!-- Balaenidae -->
         <div class="taxon-container">
             <div class="frame-box">
-                <img class="double" src="media/Right_whale_size.svg">
+                <img class="double">
             </div>
 
             <div class="taxon-frame" id="balaenidae">
                 <div class="extra-frame"></div>
                 <img src="media/Right_whale_size.svg">
-
             </div>
 
             <i class="fa fa-volume-up" aria-hidden="true"></i>
+            <audio src="media/audio/AtlRightWhale.mp3"></audio>
+            
             <h1>Balaenidae</h1>
             <div class="taxon-info">
                 <p>Historically, it is known as the right whale family, as it was thought to contain only species of right whales. Through most of the 20th Century, however, that became a much-debated (and unresolved) topic amongst the scientific community.</p>
             </div>
         </div>
         
+        <!-- Phocoenidae -->
+        <div class="taxon-container">
+            <div class="frame-box">
+                <img class="double">
+            </div>
+            
+            <div class="taxon-frame" id=phocoenidae>
+                <div class="extra-frame"></div>
+                <img src="media/Harbour_porpoise_size.svg">
+            </div>
+            
+            <i class="fa fa-volume-up" aria-hidden="true"></i>
+            
+            <h1>Phocoenidae</h1>
+            <div class="taxon-info">
+                <p>They are small toothed whales that are very closely related to oceanic dolphins. The most obvious visible difference between the two groups is that porpoises have shorter beaks and flattened, spade-shaped teeth distinct from the conical teeth of dolphins.</p>
+            </div>
+        </div>
+        
+        <!-- Dolphins -->
+        <div class="taxon-container">
+            <div class="frame-box">
+                <img class="double">
+            </div>
+            
+            <div class="taxon-frame" id=dolphins>
+                <div class="extra-frame"></div>
+                <img src="media/Bottlenose_dolphin_size.svg">
+            </div>
+            
+            <i class="fa fa-volume-up" aria-hidden="true"></i>
+            <audio src="media/audio/commondolphin.mp3"></audio>
+            
+            <h1>Dolphins</h1>
+            <div class="taxon-info">
+                <p>They are an informal grouping within the order Cetacea, excluding whales and porpoises, so to zoologists the grouping is paraphyletic. The dolphins comprise the extant families Delphinidae (the oceanic dolphins), Platanistidae (the Indian river dolphins), Iniidae (the new world river dolphins), and Pontoporiidae (the brackish dolphins).</p>
+            </div>
+        </div>
+        
     </div>
+    
+    <!-- Families BOTTOM -->
+    <div class="content-section" id="part3">
+        
+        <!-- Cetotheriidae -->
+        <div class="taxon-container">
+            <div class="frame-box">
+                <img class="double">
+            </div>
+
+            <div class="taxon-frame" id="cetotheriidae">
+                <div class="extra-frame"></div>
+                <img src="media/Pygmy_right_whale_size.svg">
+
+            </div>
+
+            <i class="fa fa-volume-up" aria-hidden="true"></i>
+            
+            <h1>Cetotheriidae</h1>
+            <div class="taxon-info">
+                <p>Praesent consectetur, tortor vulputate blandit condimentum, massa diam cursus sem, id ornare lectus massa eget metus. Mauris ullamcorper suscipit mi, ac condimentum velit eleifend ac. Aliquam a bibendum metus.</p>
+            </div>
+        </div>
+        
+        <!-- Eschrichtiidae -->
+        <div class="taxon-container">
+            <div class="frame-box">
+                <img class="double">
+            </div>
+
+            <div class="taxon-frame" id="eschrichtiidae">
+                <div class="extra-frame"></div>
+                <img src="media/Gray_whale_size.svg">
+
+            </div>
+
+            <i class="fa fa-volume-up" aria-hidden="true"></i>
+            
+            <h1>Eschrichtiidae</h1>
+            <div class="taxon-info">
+                <p>Praesent consectetur, tortor vulputate blandit condimentum, massa diam cursus sem, id ornare lectus massa eget metus. Mauris ullamcorper suscipit mi, ac condimentum velit eleifend ac. Aliquam a bibendum metus.</p>
+            </div>
+        </div>
+        
+        <!-- Physeteridae -->
+        <div class="taxon-container">
+            <div class="frame-box">
+                <img class="double">
+            </div>
+            
+            <div class="taxon-frame" id=physeteridae>
+                <div class="extra-frame"></div>
+                <img src="media/Sperm_whale_male_and_female_size.svg">
+            </div>
+            
+            <i class="fa fa-volume-up" aria-hidden="true"></i>
+            <audio src="media/audio/spermwhale.mp3"></audio>
+            
+            <h1>Physeteridae</h1>
+            <div class="taxon-info">
+                <p>Ut in nunc nisl. Etiam efficitur egestas nibh, et cursus lacus pellentesque a. Phasellus non scelerisque mauris. Ut sed arcu vehicula, egestas orci a, pretium lacus.</p>
+            </div>
+        </div>
+        
+        <!-- Ziphiidae -->
+        <div class="taxon-container">
+            <div class="frame-box">
+                <img class="double">
+            </div>
+            
+            <div class="taxon-frame" id=ziphiidae>
+                <div class="extra-frame"></div>
+                <img src="media/Cuvier's_beaked_whale_size.svg">
+            </div>
+            
+            <i class="fa fa-volume-up" aria-hidden="true"></i>
+            
+            <h1>Ziphiidae</h1>
+            <div class="taxon-info">
+                <p>These toothed whales are notable for their elongated beaks. Among air-breathing animals, beaked whales are some of the most extreme divers: Cuvier's beaked whales regularly dive for an hour at a depth over 1,000 m (3,300 ft),[1] and the longest and deepest foraging dive recorded is 137.5 minutes at 2,992 m (9,816 ft). This is the greatest dive-depth known for a mammal.</p>
+            </div>
+        </div>
+        
+    </div>
+    
 
     <footer>
         Theodore Michels 2016.
+        
+
+<!--
+        <div class="sources">
+            <ol>
+                <li>https://en.wikipedia.org/wiki/Cetacea</li>
+                <li>https://en.wikipedia.org/wiki/List_of_whale_vocalizations</li>
+                <li>http://neptune.atlantis-intl.com/dolphins/sounds.html</li>
+            </ol>
+        </div>
+-->
+
     </footer>
 
 

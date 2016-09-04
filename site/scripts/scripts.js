@@ -1,4 +1,8 @@
 $(document).ready(function(){
+    $(".taxon-container").each(function(){
+        $(this).find(".double").attr("src", $(this).find(".taxon-frame img").attr("src"));
+    });
+    
     $(".taxon-frame").hover(function(){
         $(this).parent().addClass("hover");
         $(this).parent().find("img").addClass("bobbing");

@@ -7,10 +7,17 @@ $(window).on("load resize", function(){
     updateLink($("#cetacea"), $("#odontoceti"), $("#path2"));
     updateLink($("#mysticeti"), $("#balaenopteridae"), $("#path3"));
     updateLink($("#mysticeti"), $("#balaenidae"), $("#path4"));
+    updateLink($("#mysticeti"), $("#cetotheriidae"), $("#path5"));
+    updateLink($("#odontoceti"), $("#physeteridae"), $("#path6"));
+    updateLink($("#odontoceti"), $("#dolphins"), $("#path7"));
+    updateLink($("#mysticeti"), $("#eschrichtiidae"), $("#path8"));
+    updateLink($("#odontoceti"), $("#ziphiidae"), $("#path9"));
+    updateLink($("#odontoceti"), $("#phocoenidae"), $("#path10"));
     
     updateCircleMask($("#circ-mask-1"), $("#cetacea"));
     updateCircleMask($("#circ-mask-2"), $("#mysticeti"));
-    updateCircleMask($("#circ-mask-3"), $("#balaenopteridae"));
+    updateCircleMask($("#circ-mask-3"), $("#physeteridae"));
+    
 })
 // TODO: Check screen size, make lines curve around sides on mobile
 // Check element2 indicies - even goes left, odd goes right
