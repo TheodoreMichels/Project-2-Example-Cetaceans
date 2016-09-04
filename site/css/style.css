@@ -209,6 +209,11 @@ body {
 footer {
   padding: 40px; }
 
+.sources {
+  text-align: left; }
+  .sources ol {
+    padding: 0; }
+
 @keyframes float {
   0% {
     transform: rotateZ(30deg) translateY(-50%); }
