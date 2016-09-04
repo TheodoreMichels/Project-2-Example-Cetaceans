@@ -229,6 +229,7 @@ body {
             transition: .3s all;
         }
     }
+    
     h1 {
         font-family: 'Comfortaa';
         text-transform: uppercase;
@@ -236,6 +237,26 @@ body {
         margin: 15px;
         font-size: 13px;
         color: $special-blue;
+    }
+}
+.taxon-container.large{
+    .frame-box{
+        width: $circ-size-l;
+        height: $circ-size-l;
+    }
+    .taxon-frame{
+        width: $circ-size-l;
+        height: $circ-size-l;
+    }
+}
+.taxon-container.small{
+    .frame-box{
+        width: $circ-size-s;
+        height: $circ-size-s;
+    }
+    .taxon-frame{
+        width: $circ-size-s;
+        height: $circ-size-s;
     }
 }
 
@@ -278,6 +299,9 @@ body {
 }
 
 footer {
+    width: auto;
+    display: inline-block;
+    margin: 0 auto;
     padding: 40px;
 }
 

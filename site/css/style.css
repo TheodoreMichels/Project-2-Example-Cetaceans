@@ -183,6 +183,20 @@ body {
     font-size: 13px;
     color: #1e96dc; }
 
+.taxon-container.large .frame-box {
+  width: 250px;
+  height: 250px; }
+.taxon-container.large .taxon-frame {
+  width: 250px;
+  height: 250px; }
+
+.taxon-container.small .frame-box {
+  width: 150px;
+  height: 150px; }
+.taxon-container.small .taxon-frame {
+  width: 150px;
+  height: 150px; }
+
 .bobbing {
   animation: float 5s infinite ease-in-out; }
 
@@ -207,6 +221,9 @@ body {
   color: #14c8b4; }
 
 footer {
+  width: auto;
+  display: inline-block;
+  margin: 0 auto;
   padding: 40px; }
 
 .sources {

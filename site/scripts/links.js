@@ -23,10 +23,10 @@ $(window).on("load resize", function(){
 // Check element2 indicies - even goes left, odd goes right
 function updateLink(element1, element2, path){
     var startX = getElementCenter(element1).x;
-    var startY = getElementCenter(element1).y + 150;
+    var startY = getElementCenter(element1).y + ($(element1).outerHeight() + 100) / 2.0;
     
     var endX = getElementCenter(element2).x;
-    var endY = getElementCenter(element2).y - 100;
+    var endY = getElementCenter(element2).y - $(element2).outerHeight() / 2.0;
     
     var yDist = endY - startY;
     
