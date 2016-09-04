@@ -20,11 +20,19 @@ $(document).ready(function(){
     });
     
     $(".taxon-frame").click(function(){
-        $(this).parent().find("audio").trigger("play");
+        var audioElement = $(this).parent().find("audio").get(0);
+        
+        if(!audioElement.paused && audioElement.currentTime > 0){
+            audioElement.pause();
+            audioElement.currentTime = 0;
+        }else{
+            audioElement.play();
+        }
+        
     });
     
     /**** AUDIO ****/
-    $("audio").bind('ended', function(){
+    $("audio").bind('ended pause', function(){
         $(this).parent().find("i").removeClass("audio-active");
     });
     $("audio").bind('playing', function(){
