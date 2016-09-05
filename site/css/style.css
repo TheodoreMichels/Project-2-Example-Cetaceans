@@ -18,11 +18,13 @@
   text-align: center;
   text-transform: lowercase;
   margin: 0;
+  margin-bottom: 20px;
   font-family: 'Neuton';
   font-weight: 100;
   font-size: 20px; }
 
 #scale-button {
+  z-index: 30;
   position: fixed;
   top: 0;
   right: 0;
@@ -80,8 +82,8 @@ body {
   border-bottom: dotted 1px #1e96dc;
   background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.7) 100%);
   padding: 10px;
-  margin: 10px auto;
-  max-width: 400px;
+  margin: 5px auto;
+  max-width: 500px;
   text-align: left;
   transform: translateY(20px);
   transition: .3s all; }
@@ -133,14 +135,16 @@ body {
     box-sizing: border-box; }
     .taxon-container .frame-box .double {
       position: absolute;
-      top: 50%;
+      top: 45%;
       left: 0;
       transform: rotateZ(30deg) translateY(-50%);
       transform-origin: 15% 15%;
-      height: 70%;
       animation-timing-function: ease-in-out;
       opacity: 0.0;
       transition: .5s all; }
+  .taxon-container .frame-box.shown .double {
+    opacity: 0.8;
+    transition: .3s all; }
   .taxon-container .taxon-frame {
     z-index: 10;
     display: inline-block;
@@ -153,14 +157,13 @@ body {
     padding: 20px;
     border: solid 4px #1e96dc;
     border-radius: 50% 50%;
-    transition: .2s all; }
+    transition: 1s all; }
     .taxon-container .taxon-frame img {
       position: absolute;
-      top: 50%;
+      top: 45%;
       left: 0;
       transform: rotateZ(30deg) translateY(-50%);
       transform-origin: 15% 15%;
-      height: 70%;
       opacity: 0.8;
       transition: .3s all linear; }
     .taxon-container .taxon-frame .extra-frame {
@@ -175,6 +178,9 @@ body {
       border-radius: 50% 50%;
       opacity: 0.0;
       transition: .3s all; }
+  .taxon-container .taxon-frame.faded {
+    transition: 1s all;
+    border: solid 4px rgba(30, 150, 220, 0.1); }
   .taxon-container h1 {
     font-family: 'Comfortaa';
     text-transform: uppercase;
@@ -235,7 +241,7 @@ footer {
   0% {
     transform: rotateZ(30deg) translateY(-50%); }
   50% {
-    transform: rotateZ(30deg) translateY(-60%); }
+    transform: rotateZ(30deg) translateY(-55%); }
   100% {
     transform: rotateZ(30deg) translateY(-50%); } }
 @keyframes pulse {
