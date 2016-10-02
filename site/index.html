@@ -4,99 +4,105 @@
 
 <head>
     <meta charset="utf-8">
-    
+
+    <!-- A meta tag which helps this page look right on mobile devices -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale = 1">
-    
+
     <title>Cetaceans</title>
 
+    <!-- CSS -->
     <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700|Neuton:200,300,400,400i,700,800|Satisfy|Trocchi" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa:300,400,700|Neuton:200,300,400,400i,700,800|Satisfy" rel="stylesheet">
 
+    <!-- jQuery -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 
-    <script src="https://use.fontawesome.com/47d86bc3a3.js"></script>
-
+    <!-- Custom JavaScript -->
     <script src="scripts/scripts.js"></script>
     <script src="scripts/links.js"></script>
+    <!-- Draws "links" between the different groups -->
     <script src="scripts/bubbles.js"></script>
+    <!-- Creates the background "bubbles" -->
+
+    <!-- Font Awesome Icons -->
+    <!-- Font awesome is a service you can use to link in different icons through your HTML code without having to download a bunch of vector graphics -->
+    <script src="https://use.fontawesome.com/47d86bc3a3.js"></script>
 </head>
 
 <body>
-
+    <!-- This fixed background div is used to fill the page with a color gradient -->
     <div class="bg-fill"></div>
 
-    <div class="bubbles-container">
-    </div>
+    <!-- This is just a container for all of the background "bubbles" (divs) which are created through JavaScript -->
+    <div class="bubbles-container"></div>
 
     <!-- Bezier curves connecting different circles -->
     <div class="bg-paths">
+        <!-- It would be more efficient to generate these programmatically through JavaScript... -->
         <svg id="links">
-            <defs>
-                <mask id="spots-mask">
-                    <!-- Show everything by default -->
-                    <rect x="0" y="0" width="100%" height="100%" fill="white"></rect>
-
-                    <!-- Individual masks for each taxon -->
-                    
-                    <circle id="circ-mask-1" r="50" fill="black" />
-                    <circle id="circ-mask-2" r="50" fill="black" />
-                    <circle id="circ-mask-3" r="50" fill="black" />
-
-                </mask>
-            </defs>
-
-            <path class="link-path" id="path1" mask="url(#spots-mask)"/>
-            <path class="link-path" id="path2" mask="url(#spots-mask)"/>
-            <path class="link-path" id="path3" mask="url(#spots-mask)"/>
-            <path class="link-path" id="path4" mask="url(#spots-mask)"/>
-            <path class="link-path" id="path5" mask="url(#spots-mask)"/>
-            <path class="link-path" id="path6" mask="url(#spots-mask)"/>
-            <path class="link-path" id="path7" mask="url(#spots-mask)"/>
-            <path class="link-path" id="path8" mask="url(#spots-mask)"/>
-            <path class="link-path" id="path9" mask="url(#spots-mask)"/>
-            <path class="link-path" id="path10" mask="url(#spots-mask)"/>
+            <path class="link-path" id="path1"/>
+            <path class="link-path" id="path2"/>
+            <path class="link-path" id="path3"/>
+            <path class="link-path" id="path4"/>
+            <path class="link-path" id="path5"/>
+            <path class="link-path" id="path6"/>
+            <path class="link-path" id="path7"/>
+            <path class="link-path" id="path8"/>
+            <path class="link-path" id="path9"/>
+            <path class="link-path" id="path10"/>
         </svg>
 
     </div>
 
+    <!-- HEADER -->
     <header>
         <h1 id="site-title">Cetaceans</h1>
         <h2 id="site-subtitle">A simplified phylogeny of whales, dolphins, and porpoises</h2>
     </header>
 
-    <div id="scale-button"><i class="fa fa-exchange" aria-hidden="true"></i></div>
+    <!-- This "button" is used to alternate the appearance of the whale illustrations on this page. -->
+    <div id="scale-box">
+        <div id="scale-button"><i class="fa fa-exchange" aria-hidden="true"></i></div>
+        <div id="scale-text-1">show to scale</div>
+        <div id="scale-text-2">show <strong>not</strong> to scale</div>
+    </div>
 
+    <!-- This "content-section" class is used to group the nodes which appear side by side -->
     <!-- Infraorder -->
     <div class="content-section" id="part1">
-        
+
         <!-- Cetacea -->
         <div class="taxon-container large">
+            <!-- The container class for individual "nodes" -->
             <div class="frame-box">
-                <!-- src is set through JavaScript -->
+                <!-- src is set through JavaScript for efficiency -->
                 <img class="double">
             </div>
 
             <div class="taxon-frame" id="cetacea">
                 <div class="extra-frame"></div>
-                <img src="media/images/humpback_whale.svg" data-size="42">
+                <!-- The "data-size" attribute listed here is used to keep track of the "true" size of each species -->
+                <img src="media/images/blue_whale.svg" alt="Blue Whale" data-size="80">
             </div>
-            
+
             <i class="fa fa-volume-up" aria-hidden="true"></i>
-            <audio src="media/audio/humpback_whale.ogg"></audio>
+            <audio src="media/audio/blue_whale.ogg"></audio>
 
             <h1>Cetacea</h1>
             <div class="taxon-info">
-                <p><strong>Cetaceans</strong> are a widely distributed and diverse clade of carnivorous, finned, aquatic marine mammals. There are around 89 species of cetaceans. Molecular evidence supports them as a relative of Artiodactyls (even-toed ungulates) which means that their closest living relatives are hippopotamuses and other hoofed mammals.<sup>[1]</sup> Some species of Cetaceans are attributed with high levels of intelligence, and are considered nonhuman persons by the American Association for the Advancement of Science.</p>
-                <p>The <strong>humpback whale</strong>, pictured here, produces a complex song lasting 10 to 20 minutes, which may have a role in mating.<sup>[2][3]</sup></p>
+                <p><strong>Cetaceans</strong> are a widely distributed and diverse clade of carnivorous, finned, aquatic marine mammals. There are around 89 species of cetaceans. Molecular evidence supports them as a relative of Artiodactyls (even-toed ungulates) which means that their closest living relatives are hippopotamuses and other hoofed mammals. Some species of Cetaceans are attributed with high levels of intelligence, and are considered nonhuman persons by the American Association for the Advancement of Science.</p>
+                <p>The <strong>blue whale</strong>, pictured here, grows up to 100ft. and 190 tons, and is the largest animal ever known to have existed.</p>
             </div>
         </div>
-        
+        <!-- end taxon-container -->
+
     </div>
 
     <!-- Parvorders -->
     <div class="content-section" id="part2">
-        
+
         <!-- Mysticeti -->
         <div class="taxon-container">
             <div class="frame-box">
@@ -105,16 +111,18 @@
 
             <div class="taxon-frame" id="mysticeti">
                 <div class="extra-frame"></div>
-                <img src="media/images/blue_whale.svg" data-size="80">
+                <img src="media/images/humpback_whale.svg" alt="Humpback Whale" data-size="42">
             </div>
 
             <i class="fa fa-volume-up" aria-hidden="true"></i>
-            <audio src="media/audio/blue_whale.ogg"></audio>
+            <audio src="media/audio/humpback_whale.ogg"></audio>
+
 
             <h1>Mysticeti</h1>
             <div class="taxon-info">
-                <p><strong>Mysticeti</strong>, also know as baleen whales, are a parvorder of Cetacea which includes right whales, rorquals, the gray whale, and the pygmy right whale. Baleen whales use their baleen plates to filter out food from the water by lunge-feeding or gulp-feeding. Although widespread, most species prefer the colder waters around the Northern and Southern poles. Unlike toothed whales, baleen whales do not echolocate.<sup>[4]</sup></p>
-                <p>The <strong>blue whale</strong>, pictured here, grows up to 100ft. and 190 tons, and is the largest animal ever known to have existed.<sup>[3]</sup></p>
+                <p><strong>Mysticeti</strong>, also know as baleen whales, are a parvorder of Cetacea which includes right whales, rorquals, the gray whale, and the pygmy right whale. Baleen whales use their baleen plates to filter out food from the water by lunge-feeding or gulp-feeding. Although widespread, most species prefer the colder waters around the Northern and Southern poles. Unlike toothed whales, baleen whales do not echolocate.</p>
+
+                <p>The <strong>humpback whale</strong>, pictured here, produces a complex song lasting 10 to 20 minutes, which may have a role in mating.</p>
             </div>
         </div>
 
@@ -127,13 +135,13 @@
 
             <div class="taxon-frame" id="odontoceti">
                 <div class="extra-frame"></div>
-                <img src="media/images/killer_whale.svg" data-size="20">
+                <img src="media/images/killer_whale.svg" alt="Killer Whale" data-size="20">
 
             </div>
 
             <i class="fa fa-volume-up" aria-hidden="true"></i>
             <audio src="media/audio/killer_whale.ogg"></audio>
-            
+
             <h1>Odontoceti</h1>
             <div class="taxon-info">
                 <p><strong>Odontoceti</strong>, also known as toothed whales, are a parvorder of Cetacea which includes sperm whales, beaked whales, dolphins, and porpoises. Toothed whales are distinguished by their use of echolocation, rather than sight, to hunt prey. Many species, mainly dolphins, are highly sociable, with some pods reaching over a thousand individuals.</p>
@@ -144,7 +152,7 @@
 
     <!-- Families TOP -->
     <div class="content-section" id="part4">
-        
+
         <!-- Balaenopteridae -->
         <div class="taxon-container small">
             <div class="frame-box">
@@ -153,12 +161,12 @@
 
             <div class="taxon-frame" id="balaenopteridae">
                 <div class="extra-frame"></div>
-                <img src="media/images/fin_whale.svg" data-size="70">
+                <img src="media/images/fin_whale.svg" alt="Fin Whale" data-size="70">
             </div>
 
             <i class="fa fa-volume-up" aria-hidden="true"></i>
             <audio src="media/audio/fin_whale.ogg"></audio>
-            
+
             <h1>Balaenopteridae</h1>
             <div class="taxon-info">
                 <p>The <strong>Balaenopterids</strong>, also known as rorquals, are the largest group of baleen whales, and are distinguished by series of folds of skin running from below the mouth back to the navel, which are understood to allow the mouth to expand immensely when feeding.</p>
@@ -174,64 +182,66 @@
 
             <div class="taxon-frame" id="balaenidae">
                 <div class="extra-frame"></div>
-                <img src="media/images/bowhead_whale.svg" data-size="55">
+                <img src="media/images/bowhead_whale.svg" alt="Bowhead Whale" data-size="55">
             </div>
 
             <i class="fa fa-volume-up" aria-hidden="true"></i>
             <audio src="media/audio/bowhead_whale.mp3"></audio>
-            
+
             <h1>Balaenidae</h1>
             <div class="taxon-info">
                 <p><strong>Balaenids</strong>, also known as right whales, are large whales distinguished by their narrow, arched upper jaw, giving them a deeply curved jawline and especially long baleen plates. Right whales are robustly built compared to the relatively slender rorquals, and also lack the rorquals' distinctive throat grooves.</p>
                 <p>The <strong>bowhead whale</strong>, pictured here, has the largest mouth of any animal, and uses its massive skull to break through Arctic ice to breathe.</p>
             </div>
         </div>
-        
+
         <!-- Phocoenidae -->
         <div class="taxon-container small">
             <div class="frame-box">
                 <img class="double" style="left: 20%">
             </div>
-            
+
             <div class="taxon-frame" id=phocoenidae>
                 <div class="extra-frame"></div>
-                <img src="media/images/harbour_porpoise.svg" style="left: 20%" data-size="5">
+                <img src="media/images/harbour_porpoise.svg" alt="Harbour Porpoise" style="left: 20%" data-size="5">
             </div>
-            
+
             <i class="fa fa-volume-up" aria-hidden="true"></i>
             <audio src="media/audio/harbour_porpoise.mp3"></audio>
-            
+
             <h1>Phocoenidae</h1>
             <div class="taxon-info">
-                <p>They are small toothed whales that are very closely related to oceanic dolphins. The most obvious visible difference between the two groups is that porpoises have shorter beaks and flattened, spade-shaped teeth distinct from the conical teeth of dolphins.</p>
+                <p>The <strong>Phocoenidae</strong>, also known as porpoises or mereswine, are small toothed whales that are very closely related to dolphins. Unlike dolphins, porpoises have shorter beaks and flattened, spade-shaped teeth, distinct from the conical teeth of dolphins.</p>
+                <p>The <strong>harbour porpoise</strong>, pictured here, was one of the most accessible species for early cetologists, because it could be seen very close to land.</p>
             </div>
         </div>
-        
+
         <!-- Dolphins -->
         <div class="taxon-container small">
             <div class="frame-box">
                 <img class="double">
             </div>
-            
+
             <div class="taxon-frame" id=dolphins>
                 <div class="extra-frame"></div>
-                <img src="media/images/bottlenose_dolphin.svg" data-size="12">
+                <img src="media/images/bottlenose_dolphin.svg" alt="Bottlenose Dolphin" data-size="12">
             </div>
-            
+
             <i class="fa fa-volume-up" aria-hidden="true"></i>
             <audio src="media/audio/common_dolphin.mp3"></audio>
-            
+
             <h1>Dolphins</h1>
             <div class="taxon-info">
-                <p>They are an informal grouping within the order Cetacea, excluding whales and porpoises, so to zoologists the grouping is paraphyletic. The dolphins comprise the extant families Delphinidae (the oceanic dolphins), Platanistidae (the Indian river dolphins), Iniidae (the new world river dolphins), and Pontoporiidae (the brackish dolphins).</p>
+                <p><strong>Dolphins</strong> are an informal grouping within the order Cetacea, comprising several different families. Although widespread, most dolphins prefer the warmer waters of the tropics. Dolphins are highly intelligent and sociable, and exhibit culture within separate groups.</p>
+                <p><strong>Bottlenose dolphins</strong>, pictured here, have been found to have signature whistles used to communicate with one another by identifying an individual, effectively functioning as the equivalent of a name for humans.</p>
             </div>
         </div>
-        
+
     </div>
-    
+
     <!-- Families BOTTOM -->
     <div class="content-section" id="part3">
-        
+
         <!-- Cetotheriidae -->
         <div class="taxon-container small">
             <div class="frame-box">
@@ -240,18 +250,18 @@
 
             <div class="taxon-frame" id="cetotheriidae">
                 <div class="extra-frame"></div>
-                <img src="media/images/pygmy_right_whale.svg" data-size="20">
+                <img src="media/images/pygmy_right_whale.svg" alt="Pygmy Right Whale" data-size="20">
 
             </div>
 
             <!--<i class="fa fa-volume-up" aria-hidden="true"></i>-->
-            
+
             <h1>Cetotheriidae</h1>
             <div class="taxon-info">
-                <p>Praesent consectetur, tortor vulputate blandit condimentum, massa diam cursus sem, id ornare lectus massa eget metus. Mauris ullamcorper suscipit mi, ac condimentum velit eleifend ac. Aliquam a bibendum metus.</p>
+                <p><strong>Cetotheriidae</strong> was generally though to have gone extinct during the Early Pleistocene, although recent phylogenetic studies have recovered the <strong>pygmy right whale</strong>, pictured here, as a living member. In general, Cetotheriidae has been used as a wastebasket taxon for baleen whales not assignable to extant whale families.</p>
             </div>
         </div>
-        
+
         <!-- Eschrichtiidae -->
         <div class="taxon-container small">
             <div class="frame-box">
@@ -260,79 +270,77 @@
 
             <div class="taxon-frame" id="eschrichtiidae">
                 <div class="extra-frame"></div>
-                <img src="media/images/gray_whale.svg" data-size="45">
+                <img src="media/images/gray_whale.svg" alt="Gray Whale" data-size="45">
 
             </div>
 
             <i class="fa fa-volume-up" aria-hidden="true"></i>
             <audio src="media/audio/gray_whale.mp3"></audio>
-            
+
             <h1>Eschrichtiidae</h1>
             <div class="taxon-info">
-                <p>Praesent consectetur, tortor vulputate blandit condimentum, massa diam cursus sem, id ornare lectus massa eget metus. Mauris ullamcorper suscipit mi, ac condimentum velit eleifend ac. Aliquam a bibendum metus.</p>
+                <p>The <strong>Eschrichtiidae</strong>, or gray whales, consist of a single extant species, the <strong>gray whale</strong>, pictured here. Although originally identified as a species or rorqual, skeletal differences and more recent phylogenetic studies have confirmed the placement of this species within a distinct family.</p>
             </div>
         </div>
-        
+
         <!-- Physeteridae -->
         <div class="taxon-container small">
             <div class="frame-box">
                 <img class="double">
             </div>
-            
+
             <div class="taxon-frame" id=physeteridae>
                 <div class="extra-frame"></div>
-                <img src="media/images/sperm_whale.svg" data-size="52">
+                <img src="media/images/sperm_whale.svg" alt="Sperm Whale" data-size="52">
             </div>
-            
+
             <i class="fa fa-volume-up" aria-hidden="true"></i>
             <audio src="media/audio/sperm_whale.mp3"></audio>
-            
+
             <h1>Physeteridae</h1>
             <div class="taxon-info">
-                <p>Ut in nunc nisl. Etiam efficitur egestas nibh, et cursus lacus pellentesque a. Phasellus non scelerisque mauris. Ut sed arcu vehicula, egestas orci a, pretium lacus.</p>
+                <p><strong>Physeteridae</strong> is a family which includes three extant species; the sperm whale, pygmy sperm whale, and dwarf sperm whale. Because the eyes of physeteroids cannot swivel in their sockets, echolocation is likely a more important sense to these animals than vision.</p>
+                <p>The <strong>Sperm Whale</strong>, or cachalot, pictured here, is the largest species of toothed whale, and also has the largest brain of any animal on Earth.</p>
             </div>
         </div>
-        
+
         <!-- Ziphiidae -->
         <div class="taxon-container small">
             <div class="frame-box">
                 <img class="double">
             </div>
-            
+
             <div class="taxon-frame" id=ziphiidae>
                 <div class="extra-frame"></div>
-                <img src="media/images/cuviers_beaked_whale.svg" data-size="18">
+                <img src="media/images/cuviers_beaked_whale.svg" alt="Cuvier's Beaked Whale" data-size="18">
             </div>
-            
+
             <i class="fa fa-volume-up" aria-hidden="true"></i>
             <audio src="media/audio/cuviers_beaked_whale.mp3"></audio>
-            
+
             <h1>Ziphiidae</h1>
             <div class="taxon-info">
-                <p>These toothed whales are notable for their elongated beaks. Among air-breathing animals, beaked whales are some of the most extreme divers: Cuvier's beaked whales regularly dive for an hour at a depth over 1,000 m (3,300 ft),[1] and the longest and deepest foraging dive recorded is 137.5 minutes at 2,992 m (9,816 ft). This is the greatest dive-depth known for a mammal.</p>
+                <p>The <strong>Ziphiids</strong>, or beaked whales, are notable for their elongated beaks, and are some of the most extreme divers among air-breathing animals. Because of their habitat, habits, and apparent low abundance, beaked whales are one of the least known groups of mammals.</p>
+                <p>The longest and deepest recorded foraging dive by the <strong>Cuvier's beaked whale</strong>, pictured here, lasted for 137.5 minutes at 2,992 m (9,816 ft). This is the greatest dive-depth known for a mammal.</p>
             </div>
         </div>
-        
+
     </div>
-    
+
 
     <footer>
-                
+
         <div class="sources">
             <h2>Sources</h2>
-            <ol>
-                <li>https://en.wikipedia.org/wiki/Cetacea</li>
-                <li>https://en.wikipedia.org/wiki/Humpback_whale</li>
-                <li>https://en.wikipedia.org/wiki/List_of_whale_vocalizations</li>
-                <li>https://en.wikipedia.org/wiki/Baleen_whale</li>
-                <li>https://en.wikipedia.org/wiki/Blue_whale</li>
-                <li>http://neptune.atlantis-intl.com/dolphins/sounds.html</li>
-                <li>http://cetus.ucsd.edu/voicesinthesea_org/</li>
-            </ol>
+            <ul>
+                <li><a href="http://neptune.atlantis-intl.com/dolphins/sounds.html" target="_blank">Sounds of Whales and Dolphins</a></li>
+                <li><a href="http://cetus.ucsd.edu/voicesinthesea_org" target="_blank">Voices in the Sea</a></li>
+                <li><a href="https://en.wikipedia.org" target="_blank">Wikipedia</a></li>
+            </ul>
         </div>
 
-        Theodore Michels 2016.
-        
+        <p>Theodore Michels 2016.</p>
+
     </footer>
 
 

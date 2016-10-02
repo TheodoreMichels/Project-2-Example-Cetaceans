@@ -1,11 +1,15 @@
+/**** VARIABLES ****/
+/* Variable Colors */
+/**** MIXINS ****/
+/**** HEADINGS ****/
 #site-title {
   display: inline-block;
+  text-align: center;
   font-family: 'Satisfy';
+  font-size: 70px;
   font-weight: 100;
   margin: 20px auto;
   padding: 0 10px;
-  text-align: center;
-  font-size: 70px;
   color: #1e96dc;
   border-bottom: solid 1px #1e96dc; }
 
@@ -17,29 +21,55 @@
 #site-subtitle {
   text-align: center;
   text-transform: lowercase;
-  margin: 0;
-  margin-bottom: 20px;
-  font-family: 'Neuton';
+  margin: 0 0 20px 0;
   font-weight: 100;
   font-size: 20px; }
 
-#scale-button {
+/**** SCALE BUTTON ***/
+#scale-box {
   z-index: 30;
   position: fixed;
   top: 0;
   right: 0;
-  font-size: 30px;
-  padding: 20px;
-  color: rgba(220, 80, 20, 0.6);
+  width: 250px;
+  height: 70px;
   cursor: pointer; }
 
+#scale-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 30px;
+  width: 30px;
+  font-size: 30px;
+  padding: 20px;
+  color: rgba(220, 80, 20, 0.6); }
+  #scale-button i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); }
+
+#scale-text-1, #scale-text-2 {
+  position: absolute;
+  top: 0;
+  right: 70px;
+  line-height: 70px;
+  text-transform: lowercase;
+  font-family: "Comfortaa";
+  font-size: 14px;
+  color: rgba(220, 80, 20, 0.6); }
+
+#scale-text-2 {
+  display: none; }
+
+/**** BODY ****/
 body {
   margin: 0;
   position: relative;
   text-align: center;
-  font-family: 'Neuton';
-  overflow-x: hidden;
-  min-height: 100%; }
+  font-family: "Neuton", sans-serif;
+  overflow-x: hidden; }
 
 .bg-fill {
   z-index: -2;
@@ -51,36 +81,18 @@ body {
   background-color: transparent;
   background: linear-gradient(to bottom, rgba(20, 200, 180, 0.2) 0%, white 100%); }
 
-.bubbles-container {
-  z-index: -1;
-  position: fixed;
-  width: 100%;
-  height: 100%; }
-
-.bg-paths {
-  position: absolute;
-  width: 100%;
-  height: 100%; }
-  .bg-paths svg {
-    width: 100%;
-    height: 100%; }
-
-.link-path {
-  stroke: rgba(30, 150, 220, 0.3);
-  stroke-width: 4;
-  fill: transparent; }
-
 .content-section {
   display: flex;
   flex-wrap: wrap; }
 
+/**** NODES ****/
 .taxon-info {
   z-index: 20;
   position: relative;
   opacity: 0.0;
   border-top: dotted 1px #1e96dc;
   border-bottom: dotted 1px #1e96dc;
-  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.7) 100%);
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.6) 100%);
   padding: 10px;
   margin: 5px auto;
   max-width: 500px;
@@ -203,9 +215,6 @@ body {
   width: 150px;
   height: 150px; }
 
-.bobbing {
-  animation: float 5s infinite ease-in-out; }
-
 .taxon-container.hover .extra-frame {
   opacity: 1.0;
   transform: scale(0.9, 0.9);
@@ -227,30 +236,30 @@ body {
   color: #14c8b4; }
 
 footer {
-  width: auto;
-  display: inline-block;
-  margin: 0 auto;
+  position: relative;
+  z-index: 30;
   padding: 40px; }
+  footer p {
+    font-size: 12px; }
 
-.sources {
-  text-align: left; }
-  .sources ol {
-    padding: 0; }
-
-@keyframes float {
-  0% {
-    transform: rotateZ(30deg) translateY(-50%); }
-  50% {
-    transform: rotateZ(30deg) translateY(-55%); }
-  100% {
-    transform: rotateZ(30deg) translateY(-50%); } }
-@keyframes pulse {
-  0% {
+.sources ul {
+  list-style: none;
+  padding: 0; }
+  .sources ul a {
+    text-decoration: none;
     color: rgba(220, 80, 20, 0.6); }
-  50% {
-    color: #dc5014; }
-  100% {
-    color: rgba(220, 80, 20, 0.6); } }
+  .sources ul a::before {
+    content: "- "; }
+  .sources ul a::after {
+    content: " -"; }
+
+/**** ACCENTS ****/
+.bubbles-container {
+  z-index: -1;
+  position: fixed;
+  width: 100%;
+  height: 100%; }
+
 .bubble {
   z-index: -1;
   position: absolute;
@@ -260,5 +269,31 @@ footer {
   background: linear-gradient(to top left, rgba(30, 150, 220, 0.3) 0%, transparent 100%);
   border-radius: 100% 100%;
   border: solid 1px rgba(255, 255, 255, 0.8); }
+
+.bg-paths {
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%; }
+  .bg-paths svg {
+    width: 100%;
+    height: 100%; }
+
+.link-path {
+  stroke: rgba(30, 150, 220, 0.3);
+  stroke-width: 4;
+  fill: transparent; }
+
+/**** ANIMATIONS ****/
+@keyframes pulse {
+  0% {
+    color: rgba(220, 80, 20, 0.6); }
+  50% {
+    color: #dc5014; }
+  100% {
+    color: rgba(220, 80, 20, 0.6); } }
+@media (max-width: 1080px) {
+  .bg-paths {
+    display: none; } }
 
 /*# sourceMappingURL=style.css.map */

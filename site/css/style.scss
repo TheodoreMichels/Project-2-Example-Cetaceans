@@ -1,18 +1,29 @@
+/**** VARIABLES ****/
+// Sizes of different "nodes"
 $circ-size-l: 250px;
 $circ-size-m: 200px;
 $circ-size-s: 150px;
+
+/* Variable Colors */
 $special-blue: rgba(30, 150, 220, 1.0);
 $accent-color: rgb(20, 200, 180);
 $accent-color-light: rgba(20, 200, 180, 0.2);
 $bright-accent: rgba(220, 80, 20, 0.6);
+
+$general-font: "Neuton", sans-serif;
+
+/**** MIXINS ****/
+// I made a mixin for this because it's used in a couple of different places which need to match exactly
 @mixin frame-images {
     position: absolute;
     top: 45%;
     left: 0;
+    
     transform: rotateZ(30deg) translateY(-50%);
     transform-origin: 15% 15%;
 }
 
+// Just some shorthand to reliably position an element in the center of its parent
 @mixin center-in-parent {
     position: absolute;
     top: 50%;
@@ -20,58 +31,101 @@ $bright-accent: rgba(220, 80, 20, 0.6);
     transform: translate(-50%, -50%);
 }
 
+/**** HEADINGS ****/
+// The sites main heading
 #site-title {
-    display: inline-block;
-    font-family: 'Satisfy';
-    font-weight: 100;
-    margin: 20px auto;
-    padding: 0 10px;
+    display: inline-block; // so that the border doesn't extend across the page
+    
     text-align: center;
+    font-family: 'Satisfy';
     font-size: 70px;
+    font-weight: 100;
+    
+    margin: 20px auto; // Center horizontally
+    padding: 0 10px;
+    
     color: $special-blue;
     border-bottom: solid 1px $special-blue;
 }
 
+// This is a strange bit of code which basically checks to see if the "background-clip" property is supported
 @media screen and (-webkit-min-device-pixel-ratio:0) {
     #site-title {
         color: transparent;
         background: linear-gradient($accent-color, $special-blue);
-        -webkit-background-clip: text;
+        -webkit-background-clip: text; // EXPERIMENTAL (uses the text to "clip" out the background gradient)
     }
 }
 
 #site-subtitle {
     text-align: center;
     text-transform: lowercase;
-    margin: 0;
-    margin-bottom: 20px;
-    font-family: 'Neuton';
+    
+    margin: 0 0 20px 0;
+    
     font-weight: 100;
     font-size: 20px;
 }
 
-#scale-button {
+/**** SCALE BUTTON ***/
+// This div contains the icon and text
+#scale-box{
     z-index: 30;
     position: fixed;
     top: 0;
     right: 0;
-    font-size: 30px;
-    padding: 20px;
-    color: $bright-accent;
+    width: 250px;
+    height: 70px;
+    
     cursor: pointer;
 }
+#scale-button {    
+    position: absolute; // relative to parent box
+    top: 0;
+    right: 0;
+    
+    height: 30px;
+    width: 30px;
+    font-size: 30px;
+    
+    padding: 20px;
+    
+    color: $bright-accent;
+    
+    i{
+        @include center-in-parent;
+    }
+}
+#scale-text-1, #scale-text-2{
+    position: absolute; // relative to parent box
+    top: 0;
+    right: 70px;
+    
+    line-height: 70px;
+    text-transform: lowercase;
+    
+    font-family: "Comfortaa";
+    font-size: 14px;
+    
+    color: $bright-accent;
+}
+// Defaults to hidden
+#scale-text-2{
+    display: none;
+}
 
-html {}
-
+/**** BODY ****/
 body {
     margin: 0;
     position: relative;
+    
     text-align: center;
-    font-family: 'Neuton';
+    font-family: $general-font;
+    
     overflow-x: hidden;
-    min-height: 100%;
 }
 
+// background gradient
 .bg-fill {
     z-index: -2;
     position: fixed;
@@ -83,31 +137,6 @@ body {
     background: linear-gradient(to bottom, $accent-color-light 0%, white 100%);
 }
 
-.bubbles-container {
-    z-index: -1;
-    position: fixed;
-    width: 100%;
-    height: 100%;
-}
-
-.bg-paths {
-    //display: none;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    svg {
-        width: 100%;
-        height: 100%;
-    }
-}
-
-.link-path {
-    stroke: rgba(30, 150, 220, 0.3);
-    stroke-width: 4;
-    fill: transparent;
-    //mask: url("#spots-mask");
-}
-
 .content-section {
     display: flex;
     flex-wrap: wrap;
@@ -116,25 +145,30 @@ body {
     }
 }
 
+/**** NODES ****/
+// The box of text which pops up when hovering over a "node"
 .taxon-info {
     z-index: 20;
     position: relative;
-    opacity: 0.0;
+    opacity: 0.0; // hidden by default
+    
     border-top: dotted 1px $special-blue;
     border-bottom: dotted 1px $special-blue;
-    //background-color: rgba(255, 255, 255, 0.7);
-    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.7) 100%);
+    
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0.6) 100%); // slight gradient
+    
     padding: 10px;
     margin: 5px auto;
+    
     max-width: 500px;
     text-align: left;
-    transform: translateY(20px);
+    transform: translateY(20px); // This is animated in the hover
     transition: .3s all;
     p {
         margin: 0;
     }
 }
-
+// Triangle above box
 .taxon-info:before {
     content: "";
     position: absolute;
@@ -143,6 +177,7 @@ body {
     width: 50px;
     height: 20px;
     box-sizing: border-box;
+    // Trick to make triangle from border
     border-bottom: solid 20px $accent-color;
     border-left: solid 25px transparent;
     border-right: solid 25px transparent;
@@ -261,10 +296,6 @@ body {
     }
 }
 
-.bobbing {
-    animation: float 5s infinite ease-in-out;
-}
-
 .taxon-container.hover {
     .extra-frame {
         opacity: 1.0;
@@ -300,31 +331,70 @@ body {
 }
 
 footer {
-    width: auto;
-    display: inline-block;
-    margin: 0 auto;
+    position: relative;
+    z-index: 30;
     padding: 40px;
+    
+    p{
+        font-size: 12px;
+    }
 }
 
 .sources {
-    text-align: left;
-    ol {
+    ul {
+        list-style: none;
         padding: 0;
+        a{
+            text-decoration: none;
+            color: $bright-accent;
+        }
+        a::before{
+            content: "- ";
+        }
+        a::after{
+            content: " -";
+        }
     }
 }
 
-@keyframes float {
-    0% {
-        transform: rotateZ(30deg) translateY(-50%);
-    }
-    50% {
-        transform: rotateZ(30deg) translateY(-55%);
-    }
-    100% {
-        transform: rotateZ(30deg) translateY(-50%);
+/**** ACCENTS ****/
+.bubbles-container {
+    z-index: -1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+.bubble {
+    z-index: -1;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background-color: rgba(30, 150, 220, 0.2);
+    background: linear-gradient(to top left, rgba(30, 150, 220, 0.3) 0%, transparent 100%);
+    border-radius: 100% 100%;
+    border: solid 1px rgba(255, 255, 255, 0.8);
+}
+
+.bg-paths {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    svg {
+        width: 100%;
+        height: 100%;
     }
 }
 
+// The paths between "nodes"
+.link-path {
+    stroke: rgba(30, 150, 220, 0.3);
+    stroke-width: 4;
+    fill: transparent;
+}
+
+/**** ANIMATIONS ****/
 @keyframes pulse {
     0% {
         color: $bright-accent;
@@ -337,13 +407,9 @@ footer {
     }
 }
 
-.bubble {
-    z-index: -1;
-    position: absolute;
-    width: 20px;
-    height: 20px;
-    background-color: rgba(30, 150, 220, 0.2);
-    background: linear-gradient(to top left, rgba(30, 150, 220, 0.3) 0%, transparent 100%);
-    border-radius: 100% 100%;
-    border: solid 1px rgba(255, 255, 255, 0.8);
+// This isn't a very good solution, but it works for now - just hide paths below a certain screen size.
+@media (max-width: 1080px){
+    .bg-paths{
+        display: none;
+    }
 }

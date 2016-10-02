@@ -1,25 +1,17 @@
-var toScale = false;
+var toScale = false; // A "flag" used to keep track of whether or not the species are shown to scale
 
-$(document).ready(function () {
+$(document).ready(function () { // As usual, wait for the page to load before we try to access elements
     $(".taxon-container").each(function () {
         $(this).find(".double").attr("src", $(this).find(".taxon-frame img").attr("src"));
         $(this).find("img").css("width", "350px");
     });
 
-    $(".taxon-frame").hover(function () {
+    $(".taxon-frame").hover(
+        function () {
             $(this).parent().addClass("hover");
-            $(this).parent().find("img").addClass("bobbing");
-
-            $(this).parent().find("img").one('animationiteration webkitAnimationIteration', function () {
-                $(this).addClass("bobbing");
-            });
         },
         function () {
             $(this).parent().removeClass("hover");
-
-            $(this).parent().find("img").one('animationiteration webkitAnimationIteration', function () {
-                $(this).removeClass("bobbing");
-            });
         });
 
     $(".taxon-frame").click(function () {
@@ -34,9 +26,12 @@ $(document).ready(function () {
 
     });
 
-    $("#scale-button").click(function () {
-        if (!toScale) {
+    /**** CHANGING SCALE ****/
+    // Lots of more complex stuff going on here. Check it out for something more advanced.
+    $("#scale-box").click(function () {
+        if (!toScale) { // if species are NOT already to scale...
             
+            // We need to do something slightly different for each species, so we use an "each" loop to look through all of them
             $(".taxon-container").each(function () {
 
                 var container = $(this);
@@ -55,8 +50,13 @@ $(document).ready(function () {
 
             });
             
-            toScale = true;
-        } else {
+            toScale = true; // They are now to scale.
+            
+            $("#scale-text-1").fadeOut("normal", function(){
+                $("#scale-text-2").fadeIn("normal");
+            });
+        
+        } else { // If species ARE already to scale
             $(".taxon-container").each(function () {
 
                 var container = $(this);
@@ -80,6 +80,10 @@ $(document).ready(function () {
             });
 
             toScale = false;
+            
+            $("#scale-text-2").fadeOut("normal", function(){
+                $("#scale-text-1").fadeIn("normal");
+            });
         }
 
     });
